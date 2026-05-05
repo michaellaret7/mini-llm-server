@@ -5,32 +5,30 @@ description = "vLLM OpenAI-compatible server for NVIDIA Nemotron 3 Nano 4B FP8."
 requires-python = ">=3.12,<3.13"
 dependencies = [
     # NVIDIA requires vllm >= 0.15.1 for Nemotron 3 Nano (hybrid Mamba+Attn).
-    # Pinned at 0.19.1: this is the latest version whose PyPI wheel is built
-    # against CUDA 12.8 (libcudart.so.12). vllm 0.20+ wheels link libcudart.so.13
-    # and require driver ≥580. The driver on RunPod's PyTorch 2.x template is 570
-    # (max CUDA 12.8), so cu130 wheels fail with "NVIDIA driver too old" / cudart
-    # ImportError.
-    "vllm==0.19.1",
+    # 0.20.1 ships the streaming reasoning↔tool-call fixes (PR #30671 et al.)
+    # that the nano_v3 reasoning parser needs to keep tool calls intact.
+    # The default PyPI wheel links libcudart.so.13 and needs driver ≥580 —
+    # the host pod must run a CUDA 13 / driver ≥580 RunPod template.
+    "vllm==0.20.1",
     "huggingface_hub[hf_transfer]>=1.0",
     "python-dotenv>=1.0",
-    # Direct-pin torch so [tool.uv.sources] below routes it to the cu128 index.
-    # vllm 0.19.1 requires torch==2.10.0; default PyPI build is +cu130.
-    "torch==2.10.0",
-    "torchvision==0.25.0",
-    "torchaudio==2.10.0",
+    # vllm 0.20.1 requires torch==2.11.0. Routed through the cu130 index below.
+    "torch==2.11.0",
+    "torchvision==0.26.0",
+    "torchaudio==2.11.0",
 ]
 
 [tool.uv]
 package = false
 
-# Driver on this host supports CUDA 12.8 max — pin torch to the cu128 wheel
-# index so we don't pull a cu130 build that fails to initialize CUDA.
+# Pin torch to the cu130 wheel index — matches vllm 0.20.x's libcudart.so.13
+# linkage. Requires the host pod to be on a CUDA 13 / driver ≥580 template.
 [[tool.uv.index]]
-name = "pytorch-cu128"
-url = "https://download.pytorch.org/whl/cu128"
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
 explicit = true
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu128" }
-torchvision = { index = "pytorch-cu128" }
-torchaudio = { index = "pytorch-cu128" }
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }
+torchaudio = { index = "pytorch-cu130" }
