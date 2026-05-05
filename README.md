@@ -1,5 +1,9 @@
 # mini-llm-server
 
+<p align="center">
+  <img src="banner.svg" alt="Pixel-art night skyline with a tiny GPU server tower streaming tokens into the sky" width="100%">
+</p>
+
 vLLM OpenAI-compatible server for NVIDIA Nemotron 3 Nano 4B FP8.
 
 The whole repo is a thin wrapper that picks the right vLLM flags for this model and renders them into a `vllm serve ...` invocation.

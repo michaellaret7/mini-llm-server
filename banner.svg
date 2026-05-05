@@ -1,0 +1,515 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280"
+     preserveAspectRatio="xMidYMid meet"
+     shape-rendering="crispEdges"
+     role="img"
+     aria-label="Pixel-art night scene: a tiny LLM server tower streams tokens into a starry sky.">
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0a0e2c"/>
+      <stop offset="55%" stop-color="#1d1248"/>
+      <stop offset="100%" stop-color="#3a1c5a"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e0a1c"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+    <!-- One reusable star sparkle -->
+    <g id="star">
+      <rect x="0" y="0" width="2" height="2" fill="#ffffff"/>
+    </g>
+    <!-- One reusable big star (cross) -->
+    <g id="bigstar">
+      <rect x="2" y="0" width="2" height="6" fill="#fff"/>
+      <rect x="0" y="2" width="6" height="2" fill="#fff"/>
+    </g>
+    <!-- Token particle: small 4x4 square -->
+    <g id="tok">
+      <rect x="0" y="0" width="4" height="4"/>
+    </g>
+  </defs>
+
+  <!-- ============ SKY ============ -->
+  <rect width="800" height="280" fill="url(#sky)"/>
+
+  <!-- ============ MOON ============ -->
+  <g>
+    <!-- moon body (pixel circle) -->
+    <rect x="664" y="36"  width="24" height="4"  fill="#f6ebbf"/>
+    <rect x="660" y="40"  width="32" height="4"  fill="#f6ebbf"/>
+    <rect x="656" y="44"  width="40" height="20" fill="#f6ebbf"/>
+    <rect x="660" y="64"  width="32" height="4"  fill="#f6ebbf"/>
+    <rect x="664" y="68"  width="24" height="4"  fill="#f6ebbf"/>
+    <!-- crater / shadow side -->
+    <rect x="676" y="44"  width="20" height="20" fill="#d4c685" opacity="0.55"/>
+    <rect x="684" y="48"  width="4"  height="4"  fill="#bda665"/>
+    <rect x="688" y="56"  width="4"  height="4"  fill="#bda665"/>
+    <rect x="678" y="60"  width="4"  height="4"  fill="#bda665"/>
+    <!-- soft halo -->
+    <rect x="652" y="40"  width="48" height="32" fill="#f6ebbf" opacity="0.06"/>
+    <rect x="648" y="44"  width="56" height="24" fill="#f6ebbf" opacity="0.04"/>
+  </g>
+
+  <!-- ============ STARS ============ -->
+  <g>
+    <use href="#star"     x="40"  y="30"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="92"  y="58"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" begin="0.3s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="140" y="22"><animate attributeName="opacity" values="0.1;1;0.1" dur="3.8s" begin="0.6s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="200" y="50"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.7s" begin="1.1s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="246" y="14"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="296" y="68"><animate attributeName="opacity" values="0.2;1;0.2" dur="4.0s" begin="0.8s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="350" y="36"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.9s" begin="1.4s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="412" y="18"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.4s" begin="0.2s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="478" y="44"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="1.0s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="528" y="62"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="588" y="28"><animate attributeName="opacity" values="0.1;1;0.1" dur="3.0s" begin="0.7s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="618" y="84"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.3s" begin="1.2s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="724" y="100"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.9s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="760" y="50"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.7s" begin="1.6s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="20"  y="100"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" begin="2.0s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="118" y="120"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" begin="0.4s" repeatCount="indefinite"/></use>
+    <use href="#bigstar"  x="172" y="86"><animate attributeName="opacity" values="0.3;1;0.3" dur="4.2s" repeatCount="indefinite"/></use>
+    <use href="#bigstar"  x="554" y="100"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.8s" begin="1.5s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="68"  y="76"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.0s" begin="2.4s" repeatCount="indefinite"/></use>
+    <use href="#star"     x="690" y="120"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="1.8s" repeatCount="indefinite"/></use>
+  </g>
+
+  <!-- ============ DISTANT HILLS / MOUNTAINS ============ -->
+  <g fill="#15152e">
+    <polygon points="0,200 60,170 110,190 170,160 230,185 300,170 380,195 440,175 520,200 600,180 680,200 760,180 800,196 800,240 0,240"/>
+  </g>
+  <g fill="#0e0e22">
+    <polygon points="0,220 80,200 160,220 240,205 340,225 420,210 500,225 580,210 680,225 760,212 800,222 800,260 0,260"/>
+  </g>
+
+  <!-- ============ CITY SKYLINE (silhouettes) ============ -->
+  <g fill="#0a0a1a">
+    <!-- Building A -->
+    <rect x="20"  y="190" width="56" height="80"/>
+    <!-- Building B -->
+    <rect x="84"  y="174" width="48" height="96"/>
+    <!-- Building C (with notch top) -->
+    <rect x="140" y="200" width="40" height="70"/>
+    <rect x="148" y="194" width="24" height="6"/>
+    <!-- Building D -->
+    <rect x="190" y="180" width="52" height="90"/>
+    <rect x="208" y="170" width="16" height="10"/>
+    <!-- Building E -->
+    <rect x="252" y="206" width="36" height="64"/>
+    <!-- Building F (right of tower) -->
+    <rect x="476" y="178" width="50" height="92"/>
+    <rect x="496" y="170" width="10" height="8"/>
+    <!-- Building G -->
+    <rect x="534" y="202" width="40" height="68"/>
+    <!-- Building H -->
+    <rect x="582" y="186" width="58" height="84"/>
+    <!-- Building I -->
+    <rect x="648" y="208" width="34" height="62"/>
+    <!-- Building J -->
+    <rect x="690" y="194" width="60" height="76"/>
+    <rect x="710" y="184" width="20" height="10"/>
+    <!-- Building K -->
+    <rect x="754" y="210" width="40" height="60"/>
+  </g>
+
+  <!-- city building windows: warm + cool, a few blinking -->
+  <g shape-rendering="crispEdges">
+    <!-- A windows -->
+    <rect x="28"  y="200" width="4" height="4" fill="#ffcc66"/>
+    <rect x="40"  y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="52"  y="200" width="4" height="4" fill="#ffcc66"/>
+    <rect x="64"  y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="28"  y="214" width="4" height="4" fill="#5a83c4"/>
+    <rect x="40"  y="214" width="4" height="4" fill="#ffcc66"/>
+    <rect x="52"  y="214" width="4" height="4" fill="#5a83c4"/>
+    <rect x="64"  y="214" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="28"  y="228" width="4" height="4" fill="#ffcc66"/>
+    <rect x="52"  y="228" width="4" height="4" fill="#5a83c4"/>
+    <rect x="40"  y="242" width="4" height="4" fill="#ffcc66"/>
+    <rect x="64"  y="242" width="4" height="4" fill="#5a83c4"/>
+
+    <!-- B windows -->
+    <rect x="92"  y="184" width="4" height="4" fill="#ffcc66"/>
+    <rect x="104" y="184" width="4" height="4" fill="#5a83c4"/>
+    <rect x="116" y="184" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.1;1" dur="3.4s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="92"  y="198" width="4" height="4" fill="#5a83c4"/>
+    <rect x="104" y="198" width="4" height="4" fill="#ffcc66"/>
+    <rect x="116" y="198" width="4" height="4" fill="#5a83c4"/>
+    <rect x="92"  y="212" width="4" height="4" fill="#ffcc66"/>
+    <rect x="104" y="212" width="4" height="4" fill="#5a83c4"/>
+    <rect x="116" y="212" width="4" height="4" fill="#ffcc66"/>
+    <rect x="92"  y="226" width="4" height="4" fill="#5a83c4"/>
+    <rect x="116" y="226" width="4" height="4" fill="#ffcc66"/>
+    <rect x="104" y="240" width="4" height="4" fill="#ffcc66"/>
+    <rect x="116" y="254" width="4" height="4" fill="#5a83c4"/>
+
+    <!-- C windows -->
+    <rect x="148" y="208" width="4" height="4" fill="#ffcc66"/>
+    <rect x="160" y="208" width="4" height="4" fill="#5a83c4"/>
+    <rect x="172" y="208" width="4" height="4" fill="#ffcc66"/>
+    <rect x="148" y="222" width="4" height="4" fill="#5a83c4"/>
+    <rect x="172" y="222" width="4" height="4" fill="#ffcc66"/>
+    <rect x="160" y="236" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.2s" begin="0.8s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- D windows -->
+    <rect x="198" y="190" width="4" height="4" fill="#5a83c4"/>
+    <rect x="210" y="190" width="4" height="4" fill="#ffcc66"/>
+    <rect x="222" y="190" width="4" height="4" fill="#5a83c4"/>
+    <rect x="234" y="190" width="4" height="4" fill="#ffcc66"/>
+    <rect x="198" y="204" width="4" height="4" fill="#ffcc66"/>
+    <rect x="210" y="204" width="4" height="4" fill="#5a83c4"/>
+    <rect x="222" y="204" width="4" height="4" fill="#ffcc66"/>
+    <rect x="234" y="204" width="4" height="4" fill="#5a83c4">
+      <animate attributeName="opacity" values="1;0.1;1" dur="3.0s" begin="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="198" y="218" width="4" height="4" fill="#5a83c4"/>
+    <rect x="222" y="218" width="4" height="4" fill="#ffcc66"/>
+    <rect x="210" y="232" width="4" height="4" fill="#ffcc66"/>
+    <rect x="234" y="232" width="4" height="4" fill="#5a83c4"/>
+    <rect x="198" y="246" width="4" height="4" fill="#ffcc66"/>
+    <rect x="222" y="246" width="4" height="4" fill="#5a83c4"/>
+
+    <!-- E windows -->
+    <rect x="260" y="214" width="4" height="4" fill="#5a83c4"/>
+    <rect x="272" y="214" width="4" height="4" fill="#ffcc66"/>
+    <rect x="260" y="228" width="4" height="4" fill="#ffcc66"/>
+    <rect x="272" y="228" width="4" height="4" fill="#5a83c4"/>
+    <rect x="260" y="242" width="4" height="4" fill="#5a83c4"/>
+    <rect x="272" y="242" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.8s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- F windows -->
+    <rect x="484" y="186" width="4" height="4" fill="#ffcc66"/>
+    <rect x="496" y="186" width="4" height="4" fill="#5a83c4"/>
+    <rect x="508" y="186" width="4" height="4" fill="#ffcc66"/>
+    <rect x="520" y="186" width="4" height="4" fill="#5a83c4"/>
+    <rect x="484" y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="496" y="200" width="4" height="4" fill="#ffcc66"/>
+    <rect x="508" y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="520" y="200" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.4s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="484" y="214" width="4" height="4" fill="#ffcc66"/>
+    <rect x="508" y="214" width="4" height="4" fill="#5a83c4"/>
+    <rect x="496" y="228" width="4" height="4" fill="#ffcc66"/>
+    <rect x="520" y="228" width="4" height="4" fill="#5a83c4"/>
+    <rect x="484" y="242" width="4" height="4" fill="#5a83c4"/>
+    <rect x="508" y="242" width="4" height="4" fill="#ffcc66"/>
+
+    <!-- G windows -->
+    <rect x="542" y="210" width="4" height="4" fill="#5a83c4"/>
+    <rect x="554" y="210" width="4" height="4" fill="#ffcc66"/>
+    <rect x="566" y="210" width="4" height="4" fill="#5a83c4"/>
+    <rect x="542" y="224" width="4" height="4" fill="#ffcc66"/>
+    <rect x="566" y="224" width="4" height="4" fill="#ffcc66"/>
+    <rect x="554" y="238" width="4" height="4" fill="#5a83c4">
+      <animate attributeName="opacity" values="1;0.1;1" dur="3.6s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- H windows -->
+    <rect x="590" y="194" width="4" height="4" fill="#ffcc66"/>
+    <rect x="602" y="194" width="4" height="4" fill="#5a83c4"/>
+    <rect x="614" y="194" width="4" height="4" fill="#ffcc66"/>
+    <rect x="626" y="194" width="4" height="4" fill="#5a83c4"/>
+    <rect x="590" y="208" width="4" height="4" fill="#5a83c4"/>
+    <rect x="614" y="208" width="4" height="4" fill="#ffcc66"/>
+    <rect x="626" y="208" width="4" height="4" fill="#5a83c4"/>
+    <rect x="602" y="222" width="4" height="4" fill="#ffcc66"/>
+    <rect x="626" y="222" width="4" height="4" fill="#ffcc66"/>
+    <rect x="590" y="236" width="4" height="4" fill="#ffcc66"/>
+    <rect x="614" y="236" width="4" height="4" fill="#5a83c4"/>
+    <rect x="602" y="250" width="4" height="4" fill="#5a83c4">
+      <animate attributeName="opacity" values="1;0.1;1" dur="2.8s" begin="1.1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- I windows -->
+    <rect x="656" y="216" width="4" height="4" fill="#ffcc66"/>
+    <rect x="668" y="216" width="4" height="4" fill="#5a83c4"/>
+    <rect x="656" y="230" width="4" height="4" fill="#5a83c4"/>
+    <rect x="668" y="230" width="4" height="4" fill="#ffcc66"/>
+    <rect x="656" y="244" width="4" height="4" fill="#ffcc66"/>
+    <rect x="668" y="244" width="4" height="4" fill="#5a83c4"/>
+
+    <!-- J windows -->
+    <rect x="698" y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="710" y="200" width="4" height="4" fill="#ffcc66"/>
+    <rect x="722" y="200" width="4" height="4" fill="#5a83c4"/>
+    <rect x="734" y="200" width="4" height="4" fill="#ffcc66"/>
+    <rect x="698" y="214" width="4" height="4" fill="#ffcc66"/>
+    <rect x="722" y="214" width="4" height="4" fill="#5a83c4"/>
+    <rect x="734" y="214" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.2;1" dur="3.2s" begin="0.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="710" y="228" width="4" height="4" fill="#5a83c4"/>
+    <rect x="734" y="228" width="4" height="4" fill="#ffcc66"/>
+    <rect x="698" y="242" width="4" height="4" fill="#ffcc66"/>
+    <rect x="722" y="242" width="4" height="4" fill="#5a83c4"/>
+
+    <!-- K windows -->
+    <rect x="762" y="218" width="4" height="4" fill="#ffcc66"/>
+    <rect x="774" y="218" width="4" height="4" fill="#5a83c4"/>
+    <rect x="786" y="218" width="4" height="4" fill="#ffcc66"/>
+    <rect x="762" y="232" width="4" height="4" fill="#5a83c4"/>
+    <rect x="774" y="232" width="4" height="4" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.1;1" dur="2.4s" begin="1.7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="786" y="232" width="4" height="4" fill="#5a83c4"/>
+    <rect x="762" y="246" width="4" height="4" fill="#ffcc66"/>
+    <rect x="786" y="246" width="4" height="4" fill="#ffcc66"/>
+  </g>
+
+  <!-- ============ CENTRAL SERVER TOWER ============ -->
+  <!-- silhouette (slightly lighter than other buildings so it stands out) -->
+  <g>
+    <!-- antenna -->
+    <rect x="396" y="42" width="4"  height="32" fill="#3a3a5a"/>
+    <rect x="392" y="74" width="12" height="4"  fill="#3a3a5a"/>
+    <!-- blinking red beacon -->
+    <rect x="396" y="38" width="4" height="4" fill="#ff4d4d">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- top crown / heatsink fins -->
+    <rect x="356" y="78" width="88" height="6"  fill="#23253f"/>
+    <rect x="360" y="84" width="80" height="4"  fill="#191b30"/>
+    <rect x="362" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="370" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="378" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="386" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="394" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="402" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="410" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="418" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="426" y="88" width="4"  height="6"  fill="#191b30"/>
+    <rect x="434" y="88" width="4"  height="6"  fill="#191b30"/>
+
+    <!-- main tower body -->
+    <rect x="354" y="94"  width="92" height="176" fill="#1a1d3a"/>
+    <!-- subtle vertical highlight on left edge -->
+    <rect x="354" y="94"  width="2"  height="176" fill="#262a4a"/>
+    <rect x="444" y="94"  width="2"  height="176" fill="#0d0f22"/>
+
+    <!-- "rack-mount" horizontal seams -->
+    <rect x="354" y="118" width="92" height="2" fill="#0d0f22"/>
+    <rect x="354" y="148" width="92" height="2" fill="#0d0f22"/>
+    <rect x="354" y="178" width="92" height="2" fill="#0d0f22"/>
+    <rect x="354" y="208" width="92" height="2" fill="#0d0f22"/>
+    <rect x="354" y="238" width="92" height="2" fill="#0d0f22"/>
+  </g>
+
+  <!-- server tower windows / GPU activity LEDs -->
+  <g shape-rendering="crispEdges">
+    <!-- Row 1: row of green NVIDIA-style status LEDs (4px each) -->
+    <rect x="362" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.25;1" dur="0.9s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="370" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.1s" begin="0.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="378" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.3;1" dur="0.7s" begin="0.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="386" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="0.85s" begin="0.1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="394" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.95s" begin="0.55s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="402" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.0s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="410" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.25;1" dur="0.75s" begin="0.45s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="418" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="426" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.8s" begin="0.15s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="434" y="102" width="4" height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="0.9s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Rack 1 windows -->
+    <rect x="362" y="126" width="6"  height="4" fill="#76b900"/>
+    <rect x="372" y="126" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="382" y="126" width="6"  height="4" fill="#76b900"/>
+    <rect x="392" y="126" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="402" y="126" width="6"  height="4" fill="#76b900"/>
+    <rect x="412" y="126" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="422" y="126" width="6"  height="4" fill="#76b900"/>
+    <rect x="432" y="126" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="362" y="136" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="372" y="136" width="6"  height="4" fill="#76b900"/>
+    <rect x="382" y="136" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="392" y="136" width="6"  height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.6s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="402" y="136" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="412" y="136" width="6"  height="4" fill="#76b900"/>
+    <rect x="422" y="136" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="432" y="136" width="6"  height="4" fill="#76b900"/>
+
+    <!-- Rack 2: a vLLM-style "PCIe slot" detail -->
+    <rect x="362" y="156" width="76" height="6" fill="#0d0f22"/>
+    <rect x="364" y="158" width="72" height="2" fill="#1f3a05"/>
+    <rect x="362" y="166" width="6"  height="4" fill="#76b900"/>
+    <rect x="372" y="166" width="6"  height="4" fill="#76b900"/>
+    <rect x="382" y="166" width="6"  height="4" fill="#76b900"/>
+    <rect x="392" y="166" width="6"  height="4" fill="#76b900">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="402" y="166" width="6"  height="4" fill="#76b900"/>
+    <rect x="412" y="166" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="422" y="166" width="6"  height="4" fill="#76b900"/>
+    <rect x="432" y="166" width="6"  height="4" fill="#5a83c4"/>
+
+    <!-- Rack 3 windows -->
+    <rect x="362" y="186" width="6"  height="4" fill="#76b900"/>
+    <rect x="372" y="186" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="382" y="186" width="6"  height="4" fill="#76b900"/>
+    <rect x="392" y="186" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="402" y="186" width="6"  height="4" fill="#76b900">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" begin="0.7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="412" y="186" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="422" y="186" width="6"  height="4" fill="#76b900"/>
+    <rect x="432" y="186" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="362" y="196" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="372" y="196" width="6"  height="4" fill="#76b900"/>
+    <rect x="382" y="196" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="392" y="196" width="6"  height="4" fill="#76b900"/>
+    <rect x="402" y="196" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="412" y="196" width="6"  height="4" fill="#76b900"/>
+    <rect x="422" y="196" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="432" y="196" width="6"  height="4" fill="#76b900"/>
+
+    <!-- Rack 4 windows -->
+    <rect x="362" y="216" width="6"  height="4" fill="#76b900"/>
+    <rect x="372" y="216" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="382" y="216" width="6"  height="4" fill="#76b900"/>
+    <rect x="392" y="216" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="402" y="216" width="6"  height="4" fill="#76b900"/>
+    <rect x="412" y="216" width="6"  height="4" fill="#5a83c4">
+      <animate attributeName="opacity" values="1;0.1;1" dur="2.0s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="422" y="216" width="6"  height="4" fill="#76b900"/>
+    <rect x="432" y="216" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="362" y="226" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="372" y="226" width="6"  height="4" fill="#76b900"/>
+    <rect x="382" y="226" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="392" y="226" width="6"  height="4" fill="#76b900"/>
+    <rect x="402" y="226" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="412" y="226" width="6"  height="4" fill="#76b900"/>
+    <rect x="422" y="226" width="6"  height="4" fill="#5a83c4"/>
+    <rect x="432" y="226" width="6"  height="4" fill="#76b900"/>
+
+    <!-- Rack 5: door + sign -->
+    <!-- door -->
+    <rect x="392" y="248" width="16" height="22" fill="#0a0c1c"/>
+    <rect x="392" y="248" width="16" height="2"  fill="#76b900"/>
+    <rect x="404" y="258" width="2"  height="2"  fill="#ffcc66"/>
+    <!-- "sign" -->
+    <rect x="362" y="248" width="22" height="6" fill="#0a0c1c"/>
+    <rect x="364" y="250" width="6"  height="2" fill="#76b900"/>
+    <rect x="372" y="250" width="6"  height="2" fill="#5a83c4"/>
+    <rect x="416" y="248" width="22" height="6" fill="#0a0c1c"/>
+    <rect x="418" y="250" width="6"  height="2" fill="#76b900"/>
+    <rect x="426" y="250" width="6"  height="2" fill="#5a83c4"/>
+  </g>
+
+  <!-- ============ TOKEN STREAM ============
+       Tokens spawn at the antenna, drift up + sideways, and fade out.
+       Multiple particles with staggered begin times = continuous stream. -->
+  <g>
+    <!-- token 1: green -->
+    <use href="#tok" x="396" y="36" fill="#76b900">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -2,-30; -8,-60; -14,-90"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 2: cyan -->
+    <use href="#tok" x="396" y="36" fill="#6dd3ff">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="0.4s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 4,-32; 12,-62; 22,-92"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="0.4s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 3: pink -->
+    <use href="#tok" x="396" y="36" fill="#ff6dd0">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -4,-28; -2,-56; 4,-86"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="0.8s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 4: yellow -->
+    <use href="#tok" x="396" y="36" fill="#ffd34d">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="1.2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 6,-30; 4,-58; -4,-88"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="1.2s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 5: lavender -->
+    <use href="#tok" x="396" y="36" fill="#b6a4ff">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -6,-26; -10,-54; -18,-82"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 6: green -->
+    <use href="#tok" x="396" y="36" fill="#76b900">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="2.0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 2,-34; 10,-66; 18,-96"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="2.0s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 7: orange -->
+    <use href="#tok" x="396" y="36" fill="#ff9b3d">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="2.4s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -2,-32; -6,-64; -2,-94"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="2.4s" repeatCount="indefinite"/>
+    </use>
+    <!-- token 8: cyan -->
+    <use href="#tok" x="396" y="36" fill="#6dd3ff">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.7;1" dur="3.2s" begin="2.8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 4,-26; 14,-50; 26,-78"
+        keyTimes="0;0.33;0.66;1" dur="3.2s" begin="2.8s" repeatCount="indefinite"/>
+    </use>
+  </g>
+
+  <!-- subtle glow at top of antenna (additional small particles) -->
+  <g opacity="0.85">
+    <rect x="396" y="32" width="4" height="2" fill="#76b900">
+      <animate attributeName="opacity" values="0;1;0" dur="1.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ============ GROUND ============ -->
+  <rect x="0" y="262" width="800" height="18" fill="url(#ground)"/>
+  <!-- street pixels -->
+  <g fill="#1a1828">
+    <rect x="0"   y="262" width="800" height="2"/>
+  </g>
+  <!-- street lights at base of tower -->
+  <g>
+    <rect x="346" y="266" width="2" height="6" fill="#33334a"/>
+    <rect x="344" y="264" width="6" height="2" fill="#ffcc66">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="452" y="266" width="2" height="6" fill="#33334a"/>
+    <rect x="450" y="264" width="6" height="2" fill="#ffcc66">
+      <animate attributeName="opacity" values="1;0.7;1" dur="2.4s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

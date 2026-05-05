@@ -3,16 +3,40 @@ name = "mini-llm-server"
 version = "0.1.0"
 description = "vLLM OpenAI-compatible server for NVIDIA Nemotron 3 Nano 4B FP8."
 requires-python = ">=3.12,<3.13"
+
+# vllm 0.20.1 is the first release that contains BOTH:
+#   * PR #30671 — fixes the streaming reasoning→tool-call transition that
+#     was dropping the first tool-call token (the bug that broke our
+#     Nemotron 3 Nano nano_v3 reasoning parser tool calls).
+#   * The 0.20.1 follow-up that fixes non-streaming DSV3.2/V4 tool-call
+#     type conversion.
+#
+# Hardware here: RTX 4090, NVIDIA driver 570.x → max supported CUDA major
+# is 12.x (driver 580+ is required for CUDA 13).
+#
+# vllm 0.20.1's release-asset matrix:
+#     +cpu / +cu129 / default (cu130) / sdist
+# The default PyPI wheel links libcudart.so.13 → won't load on driver 570.
+# There is no +cu128 wheel, and the sdist's pyproject hard-codes CUDA 13
+# build deps (nvidia-cuda-runtime==13.0.96, nvidia-nccl-cu13, etc.) so a
+# clean local source build against CUDA 12.8 is not practical.
+#
+# Solution: install the +cu129 wheel paired with torch 2.11.0+cu129. Both
+# use the libcudart.so.12 SONAME, and CUDA 12.x minor-version compatibility
+# lets a 12.9-built binary load on any driver that supports CUDA 12.0+
+# (driver ≥525). Our 570.x driver qualifies, so vllm 0.20.1+cu129 runs
+# natively without a source build.
 dependencies = [
-    # NVIDIA requires vllm >= 0.15.1 for Nemotron 3 Nano (hybrid Mamba+Attn).
-    # 0.20.1 ships the streaming reasoning↔tool-call fixes (PR #30671 et al.)
-    # that the nano_v3 reasoning parser needs to keep tool calls intact.
-    # The default PyPI wheel links libcudart.so.13 and needs driver ≥580 —
-    # the host pod must run a CUDA 13 / driver ≥580 RunPod template.
-    "vllm==0.20.1",
-    "huggingface_hub[hf_transfer]>=1.0",
+    "vllm",
+    # huggingface_hub 1.x dropped the [hf_transfer] extra; install hf_transfer
+    # as its own package so HF_HUB_ENABLE_HF_TRANSFER=1 still accelerates DLs.
+    "huggingface_hub>=1.0",
+    "hf_transfer>=0.1.8",
     "python-dotenv>=1.0",
-    # vllm 0.20.1 requires torch==2.11.0. Routed through the cu130 index below.
+    # vllm 0.20.x pins torch 2.11.x. cu129 build matches the +cu129 vllm
+    # wheel so all bundled CUDA libs (cudart/nccl/cublas/etc.) come from
+    # the same CUDA 12.9 toolkit and there's no minor-version mismatch
+    # between vllm and torch's nvidia-* packages.
     "torch==2.11.0",
     "torchvision==0.26.0",
     "torchaudio==2.11.0",
@@ -21,14 +45,15 @@ dependencies = [
 [tool.uv]
 package = false
 
-# Pin torch to the cu130 wheel index — matches vllm 0.20.x's libcudart.so.13
-# linkage. Requires the host pod to be on a CUDA 13 / driver ≥580 template.
 [[tool.uv.index]]
-name = "pytorch-cu130"
-url = "https://download.pytorch.org/whl/cu130"
+name = "pytorch-cu129"
+url = "https://download.pytorch.org/whl/cu129"
 explicit = true
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu130" }
-torchvision = { index = "pytorch-cu130" }
-torchaudio = { index = "pytorch-cu130" }
+torch = { index = "pytorch-cu129" }
+torchvision = { index = "pytorch-cu129" }
+torchaudio = { index = "pytorch-cu129" }
+# Pin vllm to the +cu129 release-asset wheel. The default PyPI wheel is
+# cu130 (libcudart.so.13) which won't load on driver 570.
+vllm = { url = "https://github.com/vllm-project/vllm/releases/download/v0.20.1/vllm-0.20.1+cu129-cp38-abi3-manylinux_2_31_x86_64.whl" }
